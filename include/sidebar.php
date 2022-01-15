@@ -85,7 +85,7 @@ if($rowscount  > 0){
     <h4>Blog Categories</h4>
     <div class="row">
         <div class="col-lg-6">
-            <ul class="list-unstyled">
+            <!-- <ul class="list-unstyled">
                 <li><a href="#">Category Name</a>
                 </li>
                 <li><a href="#">Category Name</a>
@@ -94,19 +94,61 @@ if($rowscount  > 0){
                 </li>
                 <li><a href="#">Category Name</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
         <!-- /.col-lg-6 -->
         <div class="col-lg-6">
             <ul class="list-unstyled">
-                <li><a href="#">Category Name</a>
+
+<?php
+$query = "SELECT * FROM category   ";
+
+$select_all_title =   mysqli_query($conn,$query) ;
+
+if(!$select_all_title){
+
+
+die('query failed' . mysqli_error($conn));
+
+
+}
+
+
+
+
+while($row=$select_all_title->fetch_assoc())
+{
+
+$cat_title = $row['cat_title'];
+
+
+
+?>
+
+<!-- loop html here -->
+
+<li><a href="#"> <?php  echo $cat_title  ?></a>
+
+
+
+
+
+ <?php }
+
+
+?>
+
+
+
+
+                <!-- <li><a href="#">Category Name</a>
                 </li>
                 <li><a href="#">Category Name</a>
                 </li>
                 <li><a href="#">Category Name</a>
                 </li>
                 <li><a href="#">Category Name</a>
-                </li>
+                </li> -->
             </ul>
         </div>
         <!-- /.col-lg-6 -->
@@ -115,9 +157,10 @@ if($rowscount  > 0){
 </div>
 
 <!-- Side Widget Well -->
-<div class="well">
-    <h4>Side Widget Well</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-</div>
+
+
+<?php    include 'include/widget.php'  ?>
+
+
 
 </div>
