@@ -83,9 +83,9 @@ if($rowscount  > 0){
 <!-- Blog Categories Well -->
 <div class="well">
     <h4>Blog Categories</h4>
-    <div class="row">
+    <div class="row" style='display:flex; '>
         <div class="col-lg-6">
-            <!-- <ul class="list-unstyled">
+            <ul class="list-unstyled">
                 <li><a href="#">Category Name</a>
                 </li>
                 <li><a href="#">Category Name</a>
@@ -94,7 +94,7 @@ if($rowscount  > 0){
                 </li>
                 <li><a href="#">Category Name</a>
                 </li>
-            </ul> -->
+            </ul>
         </div>
         <!-- /.col-lg-6 -->
         <div class="col-lg-6">
@@ -141,14 +141,7 @@ $cat_title = $row['cat_title'];
 
 
 
-                <!-- <li><a href="#">Category Name</a>
-                </li>
-                <li><a href="#">Category Name</a>
-                </li>
-                <li><a href="#">Category Name</a>
-                </li>
-                <li><a href="#">Category Name</a>
-                </li> -->
+
             </ul>
         </div>
         <!-- /.col-lg-6 -->
