@@ -199,6 +199,26 @@ echo "</tr>";
 ?>
 
 
+<?php
+
+if (isset($_GET['delete'])) {
+
+echo 'yees itis delete func';
+
+
+
+    $the_cat_id = $_GET['delete'];
+
+    $query = "DELETE FROM category WHERE cat_id = {$the_cat_id}";
+    $delete_query = mysqli_query($conn, $query);
+    header("Location:  category.php");
+}
+
+
+
+
+?>
+
 
 
 
