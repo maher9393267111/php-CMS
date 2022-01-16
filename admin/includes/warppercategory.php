@@ -1,4 +1,4 @@
-
+<?php   include'db.php' ?>
 
 <div id="page-wrapper">
 
@@ -16,6 +16,70 @@
 
 <div class='col-xs-6'>
 
+<?php
+
+if(isset($_POST['submit'])){
+
+
+$cat_title = $_POST['cat_title'];
+
+if($cat_title = '' || empty($cat_title)){
+
+
+echo "<h1>the filld shoul be not empty man</h1>";
+
+}
+
+
+else{
+
+
+    $query = "INSERT INTO category (cat_title)
+    VALUES ('".$_POST["cat_title"]."')";
+
+
+
+
+$create_category_query =   mysqli_query($conn,$query) ;
+
+
+if(!$create_category_query ){
+
+
+die('query failed' . mysqli_error($conn));
+// echo 'connected with category table is failed . ';
+}
+else{
+
+    echo 'connected with category table is successfully work';
+
+
+
+}
+
+
+
+
+}
+
+
+
+
+}
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
 
 <form action="" method='post'>
 
@@ -23,7 +87,7 @@
 
 
 <label for="cat-title">category add</label>
-<input type="text" class='form-controll ' name=cat-title>
+<input type="text" class='form-controll ' name=cat_title>
 
 
 
@@ -57,17 +121,17 @@
 
 
 <?php
-$query = "SELECT * FROM category   ";
+// $query = "SELECT * FROM category   ";
 
-$select_all_title =   mysqli_query($conn,$query) ;
+// $select_all_title =   mysqli_query($conn,$query) ;
 
-if(!$select_all_title){
-
-
-die('query failed' . mysqli_error($conn));
+// if(!$select_all_title){
 
 
-}
+// die('query failed' . mysqli_error($conn));
+
+
+// }
 ?>
 
 
@@ -84,28 +148,51 @@ die('query failed' . mysqli_error($conn));
   <tbody>
 
 <?php
-  while($row=$select_all_title->fetch_assoc())
+
+
+if($conn){
+
+echo 'connected to database' . '</br>';
+
+}
+
+$query = "SELECT * FROM category   ";
+
+$select_all_title =    mysqli_query($conn,$query) ;
+
+if(!$select_all_title){
+
+
+die('query failed' . mysqli_error($conn));
+
+
+} else{
+
+
+echo 'connected to categotry table';
+
+}
+
+
+
+
+  while($row =  mysqli_fetch_assoc($select_all_title))
 {
 
 $cat_title = $row['cat_title'];
 
 $cat_id = $row['cat_id'];
 
-?>
 
-<!-- loop html here -->
-
-  <tr>
-      <th scope="row"><?php  echo $cat_id ?></th>
-      <td> <?php  echo $cat_title ?></td>
-
-    </tr>
+echo "<tr scope='row'>";
+echo "<td>{$cat_id}</td>";
+echo "<td>{$cat_title}</td>";
+echo "<td><a href='category.php?delete={$cat_id}'>Delete</a></td>";
+echo "<td><a href='category.php?edit={$cat_id}'>Edit</a></td>";
+echo "</tr>";
 
 
-
-
-
- <?php }
+}
 
 
 ?>
@@ -113,18 +200,6 @@ $cat_id = $row['cat_id'];
 
 
 
-
-
-    <!-- <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-
-    </tr> -->
 
   </tbody>
 </table>
