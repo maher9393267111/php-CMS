@@ -1,8 +1,12 @@
 
-<?php  ob_start() ?>
+
 
 <?php  include 'db.php' ?>
 
+
+
+
+<?php  ob_start() ?>
 <head>
 
 <meta charset="utf-8">
