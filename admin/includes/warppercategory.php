@@ -81,7 +81,7 @@ else{
 
 
 
-<form action="" method='post'>
+<form  class = "mt-5" action="" method='post'>
 
 <div class='form-group'>
 
@@ -112,6 +112,106 @@ else{
 
 
 
+<hr>
+
+<!--**********************   update category form  *******************************-->
+
+
+
+
+
+
+
+
+
+
+
+<form class = "mt-5"  action="" method='post'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class='form-group'>
+
+
+
+<label for="cat-title">category update</label>
+
+
+<?php
+
+                                if(isset($_GET['edit'])){
+                                    $cat_id = $_GET['edit'];
+
+                                $query = "SELECT * FROM category WHERE cat_id = $cat_id";
+
+                                $select_categories_id = mysqli_query($conn , $query);
+
+                                while($row = mysqli_fetch_assoc($select_categories_id)){
+                                    $cat_id = $row['cat_id'];
+                                    $cat_title = $row['cat_title'];
+
+               ?>
+
+
+
+<input value="<?php if(isset($cat_title)) { echo $cat_title;} ?>" type="text" class="form-control" name="cat_title">
+                                <?php  }}?>
+
+
+
+
+
+
+
+</div>
+
+<div class='form-group'>
+
+
+<input type="submit" name='submit'  class='form-controll btn btn-primary' value='update' name=cat-title>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+
+
+
+
 
 
 
@@ -120,19 +220,7 @@ else{
 <div class='col-xs-6'>
 
 
-<?php
-// $query = "SELECT * FROM category   ";
 
-// $select_all_title =   mysqli_query($conn,$query) ;
-
-// if(!$select_all_title){
-
-
-// die('query failed' . mysqli_error($conn));
-
-
-// }
-?>
 
 
 
