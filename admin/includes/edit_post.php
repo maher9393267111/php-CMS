@@ -68,7 +68,7 @@ if(isset($_POST['update_post'])){
 
     $post_title = $_POST['post_title'];
     $post_author = $_POST['post_author'];
-    $post_category_id = $_POST['post_cat_id'];
+    $post_cat_id = $_POST['post_cat_id'];
     $post_status = $_POST['post_status'];
 
     $post_image = $_FILES['image']['name'];
