@@ -6,6 +6,37 @@
 <?php
 
 
+function confirmQuery($result){
+
+global $conn;
+
+
+    if(!$result){
+
+
+die('failde connecte' . mysqli_error($conn) ) ;
+
+
+
+    } else{
+
+
+
+echo "connected with post table";
+
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
 
 function insertdata(){
 

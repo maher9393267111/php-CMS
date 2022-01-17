@@ -1,4 +1,4 @@
-
+<?php include 'db.php' ?>
 
 <div id="page-wrapper">
 
@@ -26,7 +26,7 @@
 
 if(isset($_GET['source'])){
 
-    
+
                         $source = $_GET['source'];
                     }
 
@@ -56,10 +56,51 @@ if(isset($_GET['source'])){
 
 
 
- ?>
 
 
 
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+<?php
+
+if(isset($_GET['delete'])){
+
+
+
+$the_post_id = $_GET['delete'];
+
+echo $the_post_id;
+
+
+$query = " Delete  FROM post WHERE post_id ={$the_post_id}";
+
+
+$delete_query = mysqli_query($conn,$query) ;
+
+
+if(!$delete_query){
+
+die('failed' . mysqli_error($conn));
+
+
+}
+
+}
+
+
+
+?>
 
 
 
