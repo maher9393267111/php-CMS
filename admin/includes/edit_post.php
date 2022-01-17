@@ -94,6 +94,7 @@ if(isset($_POST['update_post'])){
     }
 }
 
+
     $query = "UPDATE post SET " ;
     $query .="post_title = '{$post_title}', ";
     $query .="post_cat_id = '{$post_cat_id}', ";
@@ -109,7 +110,7 @@ if(isset($_POST['update_post'])){
 
     confirmQuery($update_post);
 
-    echo "<p class='alert alert-success'>Update Sucessfully  " . "<a href='posts.php' >View Post</a></p>";
+    echo "<p class='alert alert-success'>Update Sucessfullyy  " . "<a href='posts.php' >View Post</a></p>";
 
 
 
